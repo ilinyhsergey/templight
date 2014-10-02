@@ -1,4 +1,4 @@
-package com.sti.tools;
+package com.sti.tools.templight;
 
 /**
  * Hello world!

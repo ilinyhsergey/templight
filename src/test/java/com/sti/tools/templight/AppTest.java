@@ -1,4 +1,4 @@
-package com.sti.tools;
+package com.sti.tools.templight;
 
 import junit.framework.Test;
 import junit.framework.TestCase;
@@ -34,7 +34,7 @@ public class AppTest
         assertTrue(true);
         URL resource = AppTest.class.getResource("/template.html");
         assertNotNull(resource);
-        System.out.println("+++++++++++++++++++++++++++++++++++"+resource.toString());
+        System.out.println("+++++++++++++++++++++++++++++++++++" + resource.toString());
 
     }
 }

@@ -24,7 +24,7 @@
                     <archive>
                         <manifest>
                             <addClasspath>true</addClasspath>
-                            <mainClass>com.sti.tools.App</mainClass>
+                            <mainClass>com.sti.tools.templight.App</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
