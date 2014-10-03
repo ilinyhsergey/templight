@@ -11,7 +11,7 @@ public class App {
             return;
 
         for (String arg : args) {
-            if (arg == null)
+            if (arg == null || arg.trim().isEmpty())
                 return;
         }
 
