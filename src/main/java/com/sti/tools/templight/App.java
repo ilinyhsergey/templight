@@ -1,14 +1,24 @@
 package com.sti.tools.templight;
 
-/**
- * Hello world!
- */
+import java.io.File;
+
 public class App {
     /**
-     *
-     * @param args template_filename output_filename var1=val1 var2=val2 ...
+     * @param args template_filename output_filename variables_properties_filename
      */
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+        if (args.length < 3)
+            return;
+
+        for (String arg : args) {
+            if (arg == null)
+                return;
+        }
+
+        File tmplFile = new File(args[0]);
+        File propFile = new File(args[2]);
+        File dstFile = new File(args[1]);
+
+        Templater.execute(tmplFile, propFile, dstFile);
     }
 }
