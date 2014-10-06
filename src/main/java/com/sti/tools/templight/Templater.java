@@ -9,34 +9,13 @@ import java.util.regex.Pattern;
  * @author sergeyi@speaktoit.com
  */
 public class Templater {
-    public static boolean execute(File src, File var, File dst) {
+    public static void execute(File src, File var, File dst) throws IOException {
 
-        BufferedReader varReader = null;
-        BufferedReader srcReader = null;
-        BufferedWriter dstWriter = null;
-        try {
-
-            if (!var.exists()) {
-                return false;
-            }
-            varReader = new BufferedReader(new FileReader(var));
-
-            if (!src.exists()) {
-                return false;
-            }
-            srcReader = new BufferedReader(new FileReader(src));
-
-            if (!dst.exists()) {
-                dst.createNewFile();
-            }
-            dstWriter = new BufferedWriter(new FileWriter(dst));
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        BufferedReader varReader = new BufferedReader(new FileReader(var));
+        BufferedReader srcReader = new BufferedReader(new FileReader(src));
+        BufferedWriter dstWriter = new BufferedWriter(new FileWriter(dst));
 
         try {
-
             Properties varProp = new Properties();
             varProp.load(varReader);
 
@@ -47,20 +26,11 @@ public class Templater {
                 dstWriter.newLine();
             }
 
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
         } finally {
-            try {
-                varReader.close();
-                srcReader.close();
-                dstWriter.close();
-            } catch (IOException ignore) {
-            }
-
+            varReader.close();
+            srcReader.close();
+            dstWriter.close();
         }
-        return true;
     }
 
     /**

@@ -68,7 +68,12 @@ public class AppTest
         File propFile = new File(prop.getPath());
         File dstFile = new File(root.getPath() + "index.html");
 
-        Templater.execute(tmplFile, propFile, dstFile);
+        try {
+            Templater.execute(tmplFile, propFile, dstFile);
+        } catch (IOException e) {
+            e.printStackTrace();
+            assertTrue(e.getLocalizedMessage(), false);
+        }
 
         String[] trueLines = {
                 "<!DOCTYPE html>",
